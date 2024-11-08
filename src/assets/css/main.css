@@ -1,0 +1,1471 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+:root {
+    --color-dark: #0B0F19;      /* Gray/900, Heading-dark */
+    --color-primary: #6366F1;
+    --color-gray: #9397AD;      /* Gray/600, Muted text*/
+    --color-white: #FFFFFF;     /* White */
+
+    --color-gray-900: #0B0F19;  /* Gray/900, Heading-dark */ 
+    --color-gray-800: #33354D;  /* Gray/800, Navigation */
+    --color-gray-700: #565973;  /* Gray/700, Body text  */
+    --color-gray-600: #9397AD;  /* Gray/600, Muted text */
+    --color-gray-500: #B4B7C9;  /* Gray/500 */
+    --color-gray-400: #D4D7E5;  /* Gray/400 */
+    --color-gray-300: #E2E5F1;  /* Gray/300 */
+    --color-gray-200: #EFF2FC;  /* Gray/200 */
+    --color-gray-100: #F3F6FF;  /* Gray/100, Light BG */
+
+    --color-border-gray: var(--color-gray-300);
+
+    --container-padding: 1rem;
+    --transition-time: all 0.2;
+}
+
+/* DEFAULT (Light Mode) */
+:root[data-theme="light"] {
+
+    --clr-bg: var(color-white);
+    --clr-bg-100: var(--color-gray-100);
+    --clr-bg-header: var(color-white);
+    
+    --color-text-body: var(--color-gray-700);
+    --color-text-heading: var(--color-gray-900);
+    --color-text-navigation: var(--color-gray-800);
+
+    --color-logo-bg: var(--color-gray-100);  /* BG färg för logos boxar i #Features section */
+    --color-icon-bg: var(--color-gray-100);  /* BG färg för icon boxar i #Details section */
+    --white-to-gray: var(--color-white);     /* Används till description knappen i header  */
+
+    --clr-bg-download-btn: var(--color-gray-900);
+    --clr-text-download-btn: var(--color-white);
+
+    --clr-bg-review_accpanel: var(--color-white);
+    
+    --color-border-accordion: var(--color-gray-300);   
+}
+
+/*  Dark Mode  */
+:root[data-theme="dark"] {
+
+    --clr-bg: var(--color-gray-900);
+    --clr-bg-100: rgba(255, 255, 255, 0.04);      /* Från Figma-filen, White med 4% opacity */
+    --clr-bg-header: var(--color-gray-900);
+
+    --color-text-body: rgba(255, 255, 255, 0.7);  /* Från Figma-filen, White med 70% opacity */  
+    --color-text-heading: var(--color-white);       
+    --color-text-navigation: var(--color-white);
+    
+    --color-logo-bg: rgba(99, 101, 241, 0.08);    /* BG färg för logos boxar i #Features section */
+    --color-icon-bg: rgba(99, 101, 241, 0.08);    /* BG färg för icon boxar i #Details section */
+    --white-to-gray: rgba(255, 255, 255, 0.5);    /* Används till description knappen i header  */
+
+    --clr-bg-download-btn: var(--color-white);
+    --clr-text-download-btn: var(--color-gray-800);
+
+    --clr-bg-review_accpanel: rgba(255, 255, 255, 0.04); 
+
+    --color-border-accordion: rgba(255, 255, 255, 0.15); 
+}   
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+    font-family: "Manrope", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    background-color: var(--clr-bg);        
+    color: var(--color-text-body);          /* I Uppgift1 hade ingen background-color eller color specificerad i body.
+                                                La in dem i Uppgift2 för att kunna org. för dark mode.    */
+}
+
+.space-y-1 > * + * {
+    margin-top: 1rem;
+}
+.space-y-2 > * + * {
+    margin-top: 2rem;
+}
+.space-y-3 > * + * {
+    margin-top: 3rem;
+}
+.space-y-4 > * + * {
+    margin-top: 4rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    color: var(--color-text-heading);           /*** Ska INTE Ändras ***/
+    font-weight: 800;
+    line-height: 1.3;
+}
+
+.h1 {  
+    font-size: 2.5rem;      /*  40px  */
+    color: var(--color-text-heading);           /*** Ska INTE Ändras ***/
+    font-weight: 800; 
+}
+.h2 {
+    font-size: 2rem;       /* 32px   */
+    color: var(--color-text-heading);           /*** Ska INTE Ändras ***/
+    font-weight: 800;     /* Extra Bold */
+}
+.h4 {
+    font-size: 1.5rem;      /* 24px   */
+    color: var(--color-text-heading);           /*** Ska INTE Ändras ***/
+    font-weight: 800;     /* Extra Bold */
+}
+.h5 {  
+    font-size: 1.25rem;      /*  20px  */
+    color: var(--color-text-heading);           /*** Ska INTE Ändras ***/
+    font-weight: 800; 
+}
+/*
+.d4 {
+    font-size: 3.5rem;     56px 
+}   
+*/
+.text-lg {                   /* Brödtext */
+    font-size: 1.125rem;    /* 18px */
+}
+
+.text-sm {                   /* Brödtext */
+    font-size: 0.875rem;     /* 14px */
+}
+
+.text-nav {
+    /* Rubrikerna i accordian under FAQ sektionen */
+    color: var(--color-text-heading);           /*** Ska INTE Ändras ***/
+    font-size: 16;
+    font-weight: 600;       /* Semibold */
+    line-height: 1.3;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+}
+
+.container {
+    width: 100%;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+a {
+    color: var(--color-primary);        /*** Ska INTE Ändras ***/
+    text-decoration: none;
+}
+a:hover {
+    color: var(--color-primary);        /*** Ska INTE Ändras ***/
+    text-decoration: underline; 
+}
+
+.btn-primary {
+    background-color: var(--color-primary);     /*** Ska INTE Ändras ***/
+    color: var(--color-white);                  /*** Ska INTE Ändras ***/
+    border-radius: 8px;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.btn-primary:hover {
+    background-color: var(--color-gray);        /*** Ska INTE Ändras ***/
+    color: var(--color-white);                  /*** Ska INTE Ändras ***/
+    text-decoration: none;
+}
+.btn-primary i {
+    margin-right: 0.5rem;
+}
+
+.btn-download-app {
+    background-color: var(--clr-bg-download-btn);   /*** Har Ändrats ***/
+    color: var(--clr-text-download-btn);            /*** Har Ändrats ***/
+    border-radius: 8px;
+    padding: 12px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.btn-download-app:hover {
+    background-color: var(--color-primary);     /*** ÄNDRAS ??? ***/
+    color: var(--color-white);                  /*** ÄNDRAS ??? ***/
+    text-decoration: none;
+}
+
+.btn-mobile {
+    background-color: transparent;
+    border: none;
+    font-size: 2rem;
+    color: var(--color-text-body);               /*** Har Ändrats ***/
+}  
+
+.btn-circle {
+    height: 44px;
+    width: 44px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;  
+    border: 1px solid var(--color-border-gray);     /*** Ska INTE Ändras ***/
+    background-color: var(--white-to-gray);         /*** Har Ändrats ***/
+    color: var(--color-text-body);                  /*** Har Ändrats ***/
+}
+
+.btn-quote {
+    height: 44px;
+    width: 44px;
+    background-color: var(--color-primary);         /*** Ska INTE Ändras ***/
+    color: var(--color-white);                      /*** Ska INTE Ändras ***/
+    border-radius: 8px;
+    padding: 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-icon {
+    height: 60px;
+    width: 60px;
+    background-color: var(--color-icon-bg);        /*** Har Ändrats ***/
+    border: 0;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+.btn-learn-more {
+    background-color: var(--color-primary);         /*** Ska INTE Ändras ***/
+    color: var(--color-white);                      /*** Ska INTE Ändras ***/
+    width: 160px;
+    height: 44px;
+    border-radius: 8px;
+    padding: 12px 25px;   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+.btn-learn-more:hover {
+    background-color: var(--color-gray);            /*** Ska INTE Ändras ***/
+    color: var(--color-white);                      /*** Ska INTE Ändras ***/
+    text-decoration: none;
+}
+.btn-learn-more i {
+    margin-left: 0.5rem;
+}
+
+.btn-contact-us {
+    background-color: var(--color-primary);     /*** Ska INTE Ändras ***/
+    color: var(--color-white);                  /*** Ska INTE Ändras ***/
+    border-radius: 8px;
+    padding: 15px 30px;     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;  
+}
+.btn-contact-us:hover {
+    background-color: var(--color-gray);        /*** Ska INTE Ändras ***/
+    color: var(--color-white);                  /*** Ska INTE Ändras ***/
+    text-decoration: none;
+}
+
+.btn-toggle-switch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-toggle-switch .label {
+    display: none;      
+}
+
+/* The switch - the box around the slider */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 45px;
+    height: 25px;
+}
+
+/* Hide default HTML checkbox */
+.toggle-switch input{
+    opacity: 0;
+}
+
+.toggle-switch input:checked + .slider {
+    background-color: var(--color-primary);         /*** Ska INTE Ändras ***/
+}
+  
+input:focus + .slider {
+    box-shadow: 0 0 1px var(--color-primary);       /*** Ska INTE Ändras ***/
+}
+  
+input:checked + .slider:before {
+    transform: translateX(18px);
+    background-color: var(--color-white);           /*** Ska INTE Ändras ***/
+}
+
+/* The slider */
+.toggle-switch .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--color-gray);            /*** Ska INTE Ändras ***/
+    transition: var(--transition-time);
+}
+  
+.toggle-switch .slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 2.5px;
+    background-color: var(--color-white);           /*** Ska INTE Ändras ***/
+    transition: var(--transition-time);            
+}
+
+/* Rounded sliders */
+.toggle-switch .slider.round {
+  border-radius: 35px;
+}
+
+.toggle-switch .slider.round:before {
+  border-radius: 50%;
+}
+  
+.navbar {
+    display: none;
+}
+
+.nav-link {
+    color: var(--color-text-navigation);          /*** Har Ändrats ***/
+    font-weight: 600;
+    text-decoration: none;
+}
+.nav-link:hover {
+    color: var(--color-primary);                  /*** ÄNDRAS ??? ***/
+    text-decoration: underline; 
+}
+
+.active {
+    color: var(--color-primary);                  /*** ÄNDRAS ??? ***/
+    text-decoration: underline;
+}
+
+#auth-signin {
+    display: none;
+}
+
+/* HEADER START */
+header {
+   background-color: var(--clr-bg-header);  /* FUNGERAR INTE - SKA FIXAS !!!! */
+   /* background: rgb(99, 102, 241);   */  
+   /* background: linear-gradient(0deg, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(241,244,253,0.07) 83%);  */
+   
+}
+header .container {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr auto auto;
+    gap: 1.5rem;
+    padding: 1rem;  
+}
+/* HEADER END */
+
+/* FOOTER START */
+footer {
+    font-size: 14px;
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    color: var(--color-text-body);   /*** Har Ändrats ***/
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 0.25rem;      
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+        }
+
+    }
+}
+/* FOOTER END */
+
+/* BRANDS START */
+#brands {
+    display: none;
+    padding-top: 4rem;  
+    padding-bottom: 2rem;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
+.brand-box {
+    border: 1px solid var(--color-border-gray);  /*** Ska INTE Ändras ***/
+    border-radius: 8px;
+    height: 100px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* BRANDS END */
+
+/* HERO START */
+#hero {
+    background: rgb(99, 102, 241);      /*** Ska INTE Ändras ***/
+    background: linear-gradient(0deg, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(241,244,253,0.07) 83%);  
+    
+    padding-top: 2rem;
+    padding-bottom: 2rem; 
+    padding-left: 1rem;    
+    padding-right: 1rem;   
+
+    overflow: hidden;
+
+    @media (min-width: 768px) {
+        padding-bottom: 0;
+    }  
+
+    .container {
+        
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        grid-template-areas: "headline" "content";
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "headline headline"
+                                 "content images";
+        }
+
+        @media (min-width: 1400px) {
+            grid-template-columns: 2fr 3fr;
+            grid-template-areas: "headline images"
+                                 "content images";
+        }
+    }
+
+    .headline {
+        grid-area: headline;
+        text-align: center;
+
+        h1 {
+            font-size: 34px;
+            font-weight: 800;
+
+            @media (min-width: 768px) {
+                font-size: 56px;
+            }
+
+            @media (min-width: 1400px) {
+                text-align: left;
+            }
+        }
+    }
+
+    .content {
+        grid-area: content;
+        text-align: center;
+
+        @media (min-width: 768px) {
+            text-align: left;
+        }
+
+        p {
+            font-size: 18px; 
+            margin-bottom: 3rem;
+        }
+
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+
+            @media (min-width: 1400px) {
+                flex-direction: row;
+            }
+        }
+
+        .discover-more {
+            color: var(--color-text-body);      /* Har Ändrats */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+
+            @media (min-width: 768px) {
+                justify-content: flex-start;
+                margin-bottom: 2rem;
+            }
+
+            @media (min-width: 1400px) {
+                margin-top: 10rem;
+            }
+        }
+    }
+
+    .images {
+        position: relative;
+        grid-area: images;
+        display: none;
+
+        @media (min-width: 768px) {
+            display: block;
+        }
+
+        .img-back {
+            position: absolute;
+            z-index: -10;
+            bottom: 0;
+            right: 100px;
+            width: 70%;
+            height: auto;
+
+            @media (min-width: 1400px) {
+                width: auto;
+                bottom: -100px;
+                right: 230px;
+            }
+        }
+
+        .img-front {
+            position: absolute;
+            z-index: -5;
+            bottom: 0;
+            right: 0;
+            width: 70%;
+            height: auto;
+        
+            @media (min-width: 1400px) {
+                width: auto;
+                bottom: -100px;
+            }
+        }
+    }
+
+}
+/* HERO END */
+
+/* FEATURES START */
+.features {
+    text-align: center;
+    padding: 3rem;  
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    .iphone {
+        display: none;
+    }
+
+    .features-grid {
+        display: grid;
+        gap: 2rem;
+        margin-top: 4rem;
+    }
+    .feature-card {
+        display: flex;
+        text-align: start;
+        gap: 1rem;
+        align-items: flex-start;
+    }
+
+    .icon-container {
+        background-color: var(--color-logo-bg);     /* I Uppgift2 inför variabeln --color-logo-bg för att växla mellan dark och light mode  */
+        padding: 1rem;
+        border-radius: 8px;  
+        flex-shrink: 0;
+    }
+
+
+    @media (min-width: 768px) {
+        .features-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem 3rem;
+        }
+    }
+
+    @media (min-width: 1400px) {
+        text-align: start;
+        .container {
+            display: flex;
+            gap: 15rem;   
+        }
+
+        .features-grid {
+            gap: 4rem 2rem;
+        }
+
+        .iphone {
+            display: block;
+        }
+        
+    }
+}
+/* FEATURES END */
+
+/* CAROUSEL START */
+#carousel {
+
+    background-color: var(--clr-bg-100);            /*** BACKGROUND FÄRG - HAR ÄNDRATS ***/
+    padding-top: 4rem;      
+    padding-bottom: 4rem;   
+    padding-left: var(--container-padding);
+    padding-right: var(var(--container-padding));   /* ERROR I SYNTAX - SKA ÄNDRAS OCH TESTAS... */
+
+    .container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;    
+    }
+
+    .heading {
+        h1 {
+            color: var(--color-text-heading);  /*** Har Ändrats ***/
+            font-size: 29px;
+            font-weight: 800;           /* ExtraBold */
+
+            @media (min-width: 768px) {
+                font-size: 34px;        
+            }  
+
+            @media (min-width: 1400px) {
+                font-size: 40px;
+            }  
+        }
+    }
+
+    .text-box {
+        width: 300px; 
+        @media (min-width: 768px) {
+            width: 500px;
+        }  
+        @media (min-width: 1400px) {
+            width: 650px;
+        }        
+    }
+
+    .heading2 {
+        text-align: center;
+        color: var(--color-text-heading);  /*** Har Ändrats ***/
+        font-weight: 800;                  /* ExtraBold */
+        margin-bottom: 1rem;
+
+        h2 {
+            font-size: 24px;  
+        }
+
+        .h2-mobile {
+            @media (min-width: 768px) {
+                display: none;
+            }  
+        }
+
+        .h2-tablet {
+            display: none;
+
+            @media (min-width: 768px) {
+                display: block; 
+            }
+
+            @media (min-width: 1400px) {
+                display: none;
+            }    
+        }
+
+        .h2-desktop {
+            display: none;
+            
+            @media (min-width: 1400px) {
+                display: block;
+            }    
+        }
+    }
+
+    .description {
+        /* color: #585C7B;    */                 
+        color: var(--color-text-body);       /*** Har Ändrats ***/
+        font-size: 16px;
+        font-weight: 400;
+        text-align: center;
+
+        /* @media (min-width: 1400px) {     Ej längre nödvändig!
+            color: var(--color-gray-700);    
+        }  */
+    }
+
+    .images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;     
+
+        @media (min-width: 1400px) {
+            justify-content: space-between;
+            gap: 5rem;
+        }   
+    }
+
+    .left-img-tablet {
+        display: none;
+        @media (min-width: 768px) and (max-width: 1400px){
+            display: block;
+        }
+    }
+
+    .left-img-desktop {
+        display: none;
+        @media (min-width: 1400px){
+            display: block;
+        }
+    }
+
+    .middle-img-mobile {
+        background: url("../images/iphone-balance_mobiletablet.svg");
+        @media (min-width: 768px) {
+            display: none;
+        }  
+    }
+
+    .middle-img-tablet {
+        display: none;
+
+        @media (min-width: 768px) and (max-width: 1400px) {
+            display: block;
+            background: url("../images/iPhone-middle_tablet.png");
+            background-repeat: no-repeat; 
+        }   
+        
+        @media (min-width: 1400px) {
+            display: none;
+        }  
+    }
+
+    .middle-img-desktop {
+        display: none;
+
+        @media (min-width: 1400px) {
+            display: block;
+        }  
+    }
+
+    .right-img-tablet {
+        display: none;
+        @media (min-width: 768px) and (max-width: 1400px) {
+            display: block;
+        }   
+    }
+
+    .right-img-desktop {
+        display: none;
+        @media (min-width: 1400px){
+            display: block;
+        }
+    }
+}
+/* CAROUSEL END */
+
+/* DETAILS START - ONLY FOR DESKTOP */
+#details {
+
+    display: none;  
+
+    background-color: var(--clr-bg);       /*** Har Ändrats ***/
+    padding-top: 4rem;      
+    padding-bottom: 4rem;   
+
+    @media (min-width: 1400px) {
+        display: block;   
+    }   
+
+    .container {
+        max-width: 1100px; 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5rem;     
+    }
+
+    .topdetails {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 7rem;     
+    }
+
+    .bottomdetails {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;     
+    }
+
+    .money-transfer {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; 
+
+        ul {
+            list-style-position: inside;
+        }
+        li {
+            margin-bottom: 1rem;
+        }    
+    }
+
+    .receive-money {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem; 
+    }
+
+    .heading-dts {
+        h2 {
+            text-align: left;
+            color: var(--color-text-heading);   /*** Har Ändrats ***/
+            font-size: 32px;
+            font-weight: 800;           /* ExtraBold */
+        }
+    }
+
+    .details-text {
+        padding-left: 1 rem;
+        text-align: left;
+        color: var(--color-text-body);   /* Gray/700  */  /*** Har Ändrats ***/
+        font-size: 16px;
+        font-weight: 400;               /* Regular */   
+    }
+
+   .info-container {
+        display: flex;
+        gap: 1rem;
+   }
+
+   .info-box {
+     p {
+        margin-top: 1rem;
+     }
+   }
+  
+} 
+/* DETAILS END */ 
+
+/* TESTIMONIALS START - ONLY FOR DESKTOP */
+#testimonials {
+
+    display: none;  
+    background-color: var(--clr-bg-100);           /*** Har Ändrats ***/ 
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+
+    @media (min-width: 1400px) {
+        display: block;  
+    }   
+
+    .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+    }  
+    
+    .headline {
+        height: 320px;
+        width: 480px;
+        h1 {
+            text-align: left;
+            color: var(--color-text-heading);  /*** Har Ändrats ***/
+            font-size: 40px;
+            font-weight: 800;
+        }
+    }
+
+    .testimony {
+        background-color: var(--clr-bg-review_accpanel);  /*** Har Ändrats ***/
+        border-radius: 10px;
+        height: 320px;
+        width: 480px;
+        padding: var(--container-padding);
+        margin-bottom: 1rem;
+    }
+
+    .rating {
+        margin-top: 2rem;
+    }
+
+    .review {
+        text-align: left;
+        color: var(--color-text-body);          /*** Har Ändrats ***/
+        font-size: 18px;
+        font-weight: 400;
+        margin-top: 1rem; 
+    }
+
+    .author {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+    }
+
+    .author-name {
+        color: var(--color-text-heading);           /*** Har Ändrats ***/
+        font-size: 16px;
+        font-weight: 700; 
+    }
+
+    .author-title {
+        /* color: var(--color-gray);   */     
+        color: var(--color-text-body);          /*** Har Ändrats ***/   
+        font-size: 14px;
+        font-weight: 400; 
+    }
+}
+/* TESTIMONIALS END */
+
+/* FAQ START */
+#faq {
+    padding: 1rem;      
+    padding-top: 4rem;
+    padding-bottom: 2rem;
+
+    .container {
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: 1fr;
+        grid-template-areas: "heading-faq" 
+                             "accordion"
+                             "button-group";
+
+
+        @media (min-width: 768px) {
+            grid-template-columns: 1fr;
+            grid-template-areas: "heading-faq"
+                                 "accordion"
+                                 "contact-container";
+        }
+                    
+        @media (min-width: 1400px) {                        
+            grid-template-columns: 1fr auto;
+            grid-template-rows: auto;
+            grid-template-areas: "heading-faq accordion"
+                                 "contact-container accordion"
+                                 ". accordion";
+        }
+    }  
+
+    .heading-faq {
+        grid-area: heading-faq;
+        text-align: center;
+        p {
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+    }
+
+    .accordion {
+        grid-area: accordion;
+        display: flex;
+        flex-direction: column;
+
+        border: 1px solid var(--color-border-accordion);     /*** Har Ändrats ***/
+        border-style: ridge;
+        border-radius: 8px;   
+      
+        @media (min-width : 768px) {
+            border: none;   
+        }     
+    }
+
+    .accordion-panel {   /* Denna används inte - men ska flytta allt hit från -open */
+        border: 1px solid var(--color-border-gray);    
+        padding: 1rem;
+        display: flex;
+        justify-content: space-between;  
+        align-items: center;  
+
+        @media (min-width: 768px) {        
+            border-radius: 8px;
+            box-shadow: 0px 4.4px 12px -1px rgba(13,10,22,0.3); 
+           
+        }
+    }
+
+    .accordion-panel-open {
+        border: 1px solid var(--color-border-accordion);     /*** Har Ändrats ***/
+        
+        padding: 1rem;
+        background-color: var(--clr-bg-review_accpanel);
+        /* display: flex;
+        justify-content: space-between;  
+        align-items: center; */
+        
+        /* display: grid;  
+        gap: 1rem; */
+        /* padding-bottom: 1.5rem;  */
+
+        @media (min-width: 768px) {        
+            border-radius: 8px;
+            box-shadow: 0px 4.4px 12px -1px rgba(13,10,22,0.3);  
+            border: none;
+        }
+    }
+
+    /*
+    #first-panel {
+        display: none;      
+        @media (min-width: 768px) {
+            display: flex; 
+        }   
+    }
+
+    #first-panel-open {     
+        .btn-circle-acc {
+            background-color: var(--color-primary);
+            color: var(--color-white);
+            box-shadow: 0px 4px 4px 0px rgba(13,10,22,0.25);
+        }     
+        @media (min-width: 768px) {
+            display: none;   
+        }
+    }
+
+    #first-panel-text {
+        flex-direction: column;
+        gap: 1rem;
+        @media (min-width: 768px) {
+            display: none; 
+        }   
+    } 
+
+    #third-panel {      
+        @media (min-width: 768px) {
+            display: none; 
+        }   
+    }
+
+    #third-panel-open {     
+        display: none;      
+        @media (min-width: 768px) {
+            display: grid;  
+            gap: 1rem;
+            padding-bottom: 1.5rem;
+
+            .btn-circle-acc {
+                background-color: var(--color-primary);
+                color: var(--color-white);
+                box-shadow: 0px 4px 4px 0px rgba(13,10,22,0.25);
+            }
+        }
+    }
+    */
+
+    #first-panel-open {     
+        /* display: none;  */   
+        /* @media (min-width: 768px) { */
+
+            display: grid;  
+            gap: .5rem;
+
+            /* padding-bottom: 1.5rem;  */
+
+            /* .btn-circle-acc {
+                background-color: var(--color-primary);
+                color: var(--color-white);
+                box-shadow: 0px 4px 4px 0px rgba(13,10,22,0.25);
+            } */
+        /* }  */
+    }
+
+
+    /* Denna kan kommenteras bort
+    .acc-row {
+        display: flex;
+        justify-content: space-between;  
+        align-items: center; 
+    }  */
+
+    /* Döper om acc-row till question */
+    .question {
+        display: flex;
+        justify-content: space-between;  
+        align-items: center; 
+        /* padding: .7rem; */
+        cursor: pointer; 
+    }
+
+    .answer {
+        /* display: none; */
+        /* height: 0;
+        overflow: hidden;
+        transition: height 300ms; */
+
+        display: grid;
+        grid-template-rows: 0fr;
+        overflow: hidden;
+
+        transition: grid-template-rows 300ms;
+    }
+
+    /* .answer.open {  */
+        /* display: block;  */
+        /* height: 100px;  */
+
+    /*    grid-template-rows: 1fr;
+        padding-top: .5rem;
+    }  */
+
+    .open .answer {
+        grid-template-rows: 1fr;
+        padding-top: .5rem;
+    }
+
+    .expandable {
+        min-height: 0px;
+    }
+
+    .btn-circle-acc {
+        height: 36px;
+        width: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;  
+        /* border: 1px solid var(--color-border-gray); */
+        border: 0;        /* new */
+        background-color: var(--clr-bg-100);            /*** Har Ändrats ***/
+        color: var(--color-text-navigation);            /*** Har Ändrats ***/
+        flex-shrink: 0;  
+        cursor: pointer;  /* new */
+        transition: all 300ms;  /* new */
+    }
+    .btn-circle-acc i {
+        font-size: 14px;
+    }
+    .open .btn-circle-acc {
+        background-color: var(--color-primary);             /*** Ska INTE Ändras ***/
+        color: var(--color-white);                          /*** Ska INTE Ändras ***/
+        rotate: 180deg;
+        /* box-shadow: 0px 4px 4px 0px rgba(13,10,22,0.25); */
+        box-shadow: 0px -4px 4px 0px rgba(13,10,22,0.25);  /*** SHADOW - Ska INTE Ändras ***/
+    }
+
+    .btn-circle-acc-open {
+        height: 36px;
+        width: 36px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;  
+        border: 1px solid var(--color-border-gray);         /*** ANVÄNDS INTE ***/
+        background-color: var(--color-primary);             /*** ANVÄNDS INTE ***/
+        color: var(--color-dark);                           /*** ANVÄNDS INTE ***/
+        flex-shrink: 0;     
+    }
+    .btn-circle-acc-open i {
+        font-size: 14px;
+    }
+
+    .btn-contact {
+        font-size: 14;
+        font-weight: 600;
+    }
+
+    .btn-contact i {
+        margin-left: 1rem;
+    }
+
+    #btn-contact-1 {
+        color: var(--color-primary);           /*** SKA INTE ÄNDRAS ***/
+    }
+
+    #btn-contact-2 {
+        color: #22C55E;                      /*** SKA INTE ÄNDRAS ***/
+    }
+
+    .contact-container {  
+        grid-area: contact-container;
+        display: none;  
+    }
+
+    .button-group {
+        grid-area: button-group;
+        place-self: center;   
+        font-size: 14px;      
+        font-weight: 600;   
+        margin-top: 1rem;
+    }
+
+
+
+    @media (min-width: 768px) {
+
+        .accordion {
+            gap: 1rem;          
+        }
+
+        .accordion-panel {
+            max-width: 750px;   
+        }
+
+        .accordion-panel-open {
+            max-width: 750px;   
+        }
+
+        .contact-container {   
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .contact-box {
+            border: 1px solid var(--color-border-gray);         /*** Ska INTE Ändras ***/
+            border-radius: 8px;
+            height: auto;       
+            min-width: 340px;   
+            padding: 1rem;
+            padding-top: 1.5rem;
+            padding-bottom: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+
+            p {
+                font-size: 14px;
+            }
+        }
+
+        .button-group{
+            display: none;
+        }
+    }
+
+    @media (min-width: 1400px) {
+
+        .heading-faq {
+            text-align: left;
+            p {
+                text-align: left;
+                width: 350px; 
+            }
+        }
+
+        .accordion-panel {   
+            width: 750px;
+        }
+
+        .accordion-panel-open {   
+            width: 750px;
+        }
+
+        .contact-box {
+            min-width: 0;  
+            width: 200px;  
+           
+        }
+    }
+}
+/* FAQ END */
+
+/* SUBSCRIBE START */
+#subscribe {
+    padding: 1rem;        
+    margin-bottom: 1rem;   
+    
+    .container {
+        background-color: var(--clr-bg-100);               /*** Har Ändrats ***/
+        border-radius: 10px;
+        padding: 2rem;
+        padding-top: 4rem;
+        padding-bottom: 3rem;
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+
+        box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.25);     /*** Ska INTE Ändras ***/
+
+        @media (min-width: 768px) {
+            flex-direction: row;
+        }
+        @media (min-width: 1400px) {
+            gap: 8rem;
+        }
+    }
+
+    .h4 {
+        text-wrap: balance;
+        font-size: 1.25rem;      /* 20px  */
+        color: var(--color-text-heading);                   /*** Ska INTE Ändras ***/
+        font-weight: 800;        /* Extra Bold */
+
+        @media (min-width: 1400px) {
+            font-size: 1.5rem;   /* 24px  */
+        }
+    }
+
+    .notification-group {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+    }
+
+    .heading-subscribe {
+        max-width: 230px;
+
+        .line-1-desktop { display: none; }
+
+        .line-2 { display: none; }
+
+        @media (min-width: 1400px) {
+            .line-1-mobtablet { display: none ;}
+            .line-1-desktop { display: block; }
+            .line-2 { display: block; }
+            max-width: none;
+        }
+    }
+
+    .subscribe-group {
+        position: relative;
+        display: flex;
+
+        .form-input-email {
+            border-radius: .5em 0 0 .5em;
+        }
+        .btn-subscribe {
+            border-radius: 0 .5em .5em 0;
+        }
+    }
+
+    .icon {
+        position: absolute;
+        
+        top: 50%;
+        left: 1rem;  
+
+        transform: translateY(-50%);   
+        color: var(--color-gray-600);                   /*** Ska INTE Ändras ***/
+    }
+
+    .form-input-email {
+        border: 1px solid var(--color-border-gray);     /*** Ska INTE Ändras ***/
+        font-size: 1rem;        
+        padding: .3em;
+
+        border-radius: .5em;
+    }
+
+    .btn-subscribe {               
+        background-color: var(--color-primary);         /*** Ska INTE Ändras ***/
+        color: var(--color-white);                      /*** Ska INTE Ändras ***/
+        padding: 1em 2rem;    
+        border: 0;
+        font-size: 1rem;          
+        font-weight: 500;        
+
+        border-radius: .5em;  
+    }
+    .btn-subscribe:hover {
+        background-color: var(--color-gray);         /*** Ska INTE Ändras ***/   
+        color: var(--color-white);                   /*** Ska INTE Ändras ***/
+        text-decoration: none;
+    }
+
+    .email {
+        padding-left: 3rem;   
+    }
+}
+/* SUBSCRIBE END */
+   
+/* MEDIA QUERIES FOR header, footer, brands START */  
+@media (min-width: 768px) {
+    .container {
+        max-width: 712px;  
+    }
+
+    .btn-toggle-switch .label {
+        display: block;      
+    }
+
+    header .container {
+        gap: 3rem;
+    }
+
+    footer {
+        .credit {
+            display: block;
+        }
+    }
+
+    #brands {
+        display: block;
+    }
+
+    #brand-5, #brand-6 {
+        display: none;
+    }
+
+}
+
+@media (min-width: 1400px) {  
+    .container {
+        max-width: 1320px;
+    }
+
+    header .container {
+        grid-template-columns: auto 1fr auto auto;
+        gap: 3rem;
+    }
+
+    #auth-signin {
+        display: block;
+    }
+
+    .btn-mobile {
+        display: none;
+    }
+
+    .navbar {
+        display: block;
+    }
+
+    #brand-5, #brand-6 {
+        display: flex;
+    }
+}
+/* MEDIA QUERIES FOR header, footer, brands END */  

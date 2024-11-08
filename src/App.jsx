@@ -1,18 +1,8 @@
+import './assets/css/main.css'
 //import { useState } from 'react'
 
-
-//Alt 1: 
-/* 
-function App() {
-  return (
-    <>
-      <h1>Hello World!</h1> 
-    </>
-  )
-}   
-*/
-
 //Alt 2:
+
 const App = () => {
   //const [count, setCount] = useState(0)
 
