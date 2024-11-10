@@ -20,6 +20,9 @@
 
     --container-padding: 1rem;
     --transition-time: all 0.2;
+
+    --clr-bg-download-btn: var(--color-gray-900);
+    --clr-text-download-btn: var(--color-white);
 }
 
 /* DEFAULT (Light Mode) */
