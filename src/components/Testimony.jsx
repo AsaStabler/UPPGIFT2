@@ -1,23 +1,26 @@
 import React from 'react'
+//import { Link } from 'react-router-dom'
 
 const Testimony = ({item}) => {
   return (
-    <div className="testimony">
-        <button className="btn-quote">
-            <img src="./testimonyimages/quote-icon.svg" alt="quote icon" />
-        </button>
-        <div>
-            <img src={item.ratingUrl} alt={item.ratingAlt} />
-        </div>
-        <p className="review">{item.reviewText}</p>
-        <div className="author">
-            <img src={item.authorUrl} alt={item.authorAlt} />
+    //<Link to={`/services/${item.id}`}>
+        <div className="testimony">
+            <button className="btn-quote">
+                <img src="./testimonyimages/quote-icon.svg" alt="quote icon" />
+            </button>
             <div>
-                <p className="author-name">{item.authorName}</p>
-                <p className="author-title">{item.authorTitle}</p>
+                <img src={`./testimonyimages/starRating-${item.starRating}.svg`} alt={`starRating ${item.starRating}`} />
+            </div>
+            <p className="review">{item.comment}</p>
+            <div className="author">
+                <img src={item.avatarUrl} alt={`${item.author} avatar`} />
+                <div>
+                    <p className="author-name">{item.author}</p>
+                    <p className="author-title">{item.jobRole}</p>
+                </div>
             </div>
         </div>
-    </div>
+    //</Link>
   )
 }
 
