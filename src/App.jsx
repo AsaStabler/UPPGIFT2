@@ -7,6 +7,8 @@ import Features from './components/Features'
 import Carousel from './components/Carousel'
 import Details from './components/Details'
 import Testimonials from './components/Testimonials'
+import FAQ from './components/FAQ'
+import Subscribe from './components/Subscribe'
 //import { useState } from 'react'
 
 const App = () => {
@@ -23,6 +25,8 @@ const App = () => {
           <Carousel />
           <Details />
           <Testimonials />
+          <FAQ />
+          <Subscribe />
         </main>
         <Footer />
       </div>
