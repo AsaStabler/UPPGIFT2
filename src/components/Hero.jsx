@@ -1,6 +1,8 @@
 import React from 'react'
-import AppStore from '../assets/images/appstore.svg'
-import GooglePlay from '../assets/images/googleplay.svg'
+import AppStoreLight from '../assets/images/appstore-light.svg'
+import AppStoreDark from '../assets/images/appstore-dark.svg'
+import GooglePlayLight from '../assets/images/googleplay-light.svg'
+import GooglePlayDark from '../assets/images/googleplay-dark-mobile.svg'
 import IphoneBudget from '../assets/images/iphone-mybudget_desktop.svg'
 import IphoneCards from '../assets/images/iphone-yourcards_desktop.svg'
 
@@ -15,8 +17,10 @@ const Hero = () => {
             <div className="content">
                 <p>We offer you a new generation of the mobile banking. Save, spend & manage money in your pocket.</p>
                 <div className="buttons">
-                    <a className="btn-download-app" href="#"><img src={AppStore} alt="appstore" /></a>
-                    <a className="btn-download-app" href="#"><img src={GooglePlay} alt="googleplay" /></a>
+                    <a className="btn-download-app show-light" href="#"><img src={AppStoreLight} alt="appstore light" /></a>
+                    <a className="btn-download-app show-dark" href="#"><img src={AppStoreDark} alt="appstore dark" /></a>
+                    <a className="btn-download-app show-light" href="#"><img src={GooglePlayLight} alt="googleplay light" /></a>
+                    <a className="btn-download-app show-dark" href="#"><img src={GooglePlayDark} alt="googleplay dark" /></a>
                 </div>
                 <a href="#" className="discover-more">
                     <span className="btn-circle">

@@ -20,9 +20,10 @@
 
     --container-padding: 1rem;
     --transition-time: all 0.2;
-
+    /*
     --clr-bg-download-btn: var(--color-gray-900);
     --clr-text-download-btn: var(--color-white);
+    */
 }
 
 /* DEFAULT (Light Mode) */
@@ -31,21 +32,27 @@
     --clr-bg: var(color-white);
     --clr-bg-100: var(--color-gray-100);
     --clr-bg-header: var(color-white);
+    --clr-bg-gradient: linear-gradient(0deg, rgba(99, 102, 241, 0.102) 0%, rgba(218,70,239,0.05) 42%, rgba(241,244,253,0.07) 83%);     
+
     
     --color-text-body: var(--color-gray-700);
     --color-text-heading: var(--color-gray-900);
     --color-text-navigation: var(--color-gray-800);
+    --color-text-subscribe-input: var(--color-gray-900);
 
     --color-logo-bg: var(--color-gray-100);  /* BG färg för logos boxar i #Features section */
     --color-icon-bg: var(--color-gray-100);  /* BG färg för icon boxar i #Details section */
     --white-to-gray: var(--color-white);     /* Används till description knappen i header  */
 
     --clr-bg-download-btn: var(--color-gray-900);
-    --clr-text-download-btn: var(--color-white);
+    /* --clr-text-download-btn: var(--color-white);  */
 
     --clr-bg-review_accpanel: var(--color-white);
     
-    --color-border-accordion: var(--color-gray-300);   
+    --color-border-accordion: var(--color-gray-300); 
+
+    .show-light { display:flex; }
+    .show-dark { display:none; }     
 }
 
 /*  Dark Mode  */
@@ -54,22 +61,27 @@
     --clr-bg: var(--color-gray-900);
     --clr-bg-100: rgba(255, 255, 255, 0.04);      /* Från Figma-filen, White med 4% opacity */
     --clr-bg-header: var(--color-gray-900);
+    --clr-bg-gradient: linear-gradient(0deg, rgba(99, 102, 241, 0.102) 0%, rgba(218, 70, 239, 0.051) 42%, rgb(11, 15, 25, 1) 83%);  
 
     --color-text-body: rgba(255, 255, 255, 0.7);  /* Från Figma-filen, White med 70% opacity */  
     --color-text-heading: var(--color-white);       
     --color-text-navigation: var(--color-white);
+    --color-text-subscribe-input: var(--color-white);
     
     --color-logo-bg: rgba(99, 101, 241, 0.08);    /* BG färg för logos boxar i #Features section */
     --color-icon-bg: rgba(99, 101, 241, 0.08);    /* BG färg för icon boxar i #Details section */
-    --white-to-gray: rgba(255, 255, 255, 0.5);    /* Används till description knappen i header  */
+    --white-to-gray: rgba(255, 255, 255, 0.05);   /* Används till description knappen i header  */
 
-    --clr-bg-download-btn: var(--color-white);
-    --clr-text-download-btn: var(--color-gray-800);
+    --clr-bg-download-btn: var(--color-gray-100);
+    /* --clr-text-download-btn: var(--color-gray-800);  */
 
     --clr-bg-review_accpanel: rgba(255, 255, 255, 0.04); 
 
     --color-border-accordion: rgba(255, 255, 255, 0.15); 
-}   
+
+    .show-light { display:none; }
+    .show-dark { display:flex; }
+} 
 
 * {
     margin: 0;
@@ -204,7 +216,7 @@ a:hover {
 }
 .btn-download-app:hover {
     background-color: var(--color-primary);     /*** ÄNDRAS ??? ***/
-    color: var(--color-white);                  /*** ÄNDRAS ??? ***/
+        /* color: var(--color-white);   */      /*** Gör ingenting på en .svg ***/
     text-decoration: none;
 }
 
@@ -446,8 +458,8 @@ footer {
 /* HERO START */
 #hero {
     background: rgb(99, 102, 241);      /*** Ska INTE Ändras ***/
-    background: linear-gradient(0deg, rgba(99,102,241,0.1) 0%, rgba(218,70,239,0.05) 42%, rgba(241,244,253,0.07) 83%);  
-    
+    background: var(--clr-bg-gradient);  
+
     padding-top: 2rem;
     padding-bottom: 2rem; 
     padding-left: 1rem;    
@@ -456,8 +468,13 @@ footer {
     overflow: hidden;
 
     @media (min-width: 768px) {
+        padding-top: 4rem;
         padding-bottom: 0;
-    }  
+    } 
+    
+    @media (min-width: 1400px) {
+        padding-top: 9rem;
+    } 
 
     .container {
         
@@ -1387,6 +1404,8 @@ footer {
 
     .form-input-email {
         border: 1px solid var(--color-border-gray);     /*** Ska INTE Ändras ***/
+        background-color: var(--clr-bg-100);
+        color: var(--color-text-subscribe-input);
         font-size: 1rem;        
         padding: .3em;
 
