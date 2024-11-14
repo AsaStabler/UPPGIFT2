@@ -9,24 +9,47 @@ import Details from './components/Details'
 import Testimonials from './components/Testimonials'
 import FAQ from './components/FAQ'
 import Subscribe from './components/Subscribe'
+import ContactUs from './components/ContactUs'
+import ContactMap from './components/ContactMap'
+
+
+
 //import { useState } from 'react'
 
 const App = () => {
   //const [count, setCount] = useState(0)
 
+  /*
+  <Hero />
+  <Brands />
+  <Features />
+  <Carousel />
+  <Details />
+  <Testimonials />
+  <FAQ />
+  <Subscribe />
+  */
+
+  /*
+  <main>
+      <ContactUs />
+      <ContactMap />
+  </main>
+  */
+
   return (
     <>
       <div className="wrapper">
+        <Header />
         <main>
-          <Header />
-          <Hero />
-          <Brands />
-          <Features />
-          <Carousel />
-          <Details />
-          <Testimonials />
-          <FAQ />
-          <Subscribe />
+            <Hero />
+            <Brands />
+            <Features />
+            <Carousel />
+            <Details />
+            <Testimonials />
+            <FAQ />
+            <Subscribe />
         </main>
         <Footer />
       </div>
