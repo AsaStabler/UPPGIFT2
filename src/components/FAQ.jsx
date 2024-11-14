@@ -2,6 +2,7 @@ import React from 'react'
 import Accordion from './Accordion'
 import ThinkingBubble from '../assets/images/thinking-bubble-icon.svg'
 import RingingPhone from '../assets/images/ringing-phone-icon.svg'
+import { Link } from 'react-router-dom'
 
 const FAQ = () => {
   return (
@@ -26,10 +27,10 @@ const FAQ = () => {
                     </div>
                     <p>Still have questions?</p>
                     <div>
-                        <a id="btn-contact-1" className="btn-contact">
+                        <Link to="/Contact" id="btn-contact-1" className="btn-contact">
                             <span>Contact us</span>
                             <i className="fa-regular fa-arrow-right"></i>
-                        </a>
+                        </Link>
                     </div>
                 </div>                       
                 <div id="contact-2" className="contact-box">
@@ -38,10 +39,10 @@ const FAQ = () => {
                     </div>
                     <p>Don't like phone calls?</p>
                     <div>
-                        <a id="btn-contact-2" className="btn-contact">
+                        <Link to="/Contact" id="btn-contact-2" className="btn-contact">
                             <span>Contact us</span>
                             <i className="fa-regular fa-arrow-right"></i>
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

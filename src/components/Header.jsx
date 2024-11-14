@@ -2,25 +2,30 @@ import React from 'react'
 import LogoTypeLight from '../assets/images/logo-light.svg'
 import LogoTypeDark from '../assets/images/logo-dark.svg'
 import DarkModeSwitch from './DarkModeSwitch'
+import { Link, NavLink } from 'react-router-dom'
 
 const Header = () => {
   return (
     <header>
         <div className="container">
 
-            <a id="logo-light" className="show-light" href="index.html"><img src={LogoTypeLight} alt="Silicon Logotype Light" /></a>
-            <a id="logo-dark" className="show-dark" href="index.html"><img src={LogoTypeDark}  alt="Silicon Logotype Dark" /></a>
+            <Link id="logo-light" className="show-light" to="/"><img src={LogoTypeLight} alt="Silicon Logotype Light" /></Link>
+            <Link id="logo-dark" className="show-dark" to="/"><img src={LogoTypeDark}  alt="Silicon Logotype Dark" /></Link>
 
             <nav id="main-menu" className="navbar"> 
-                <a className="nav-link" href="#">Features</a>
+                <NavLink className="nav-link" to="/">Features</NavLink>
+            </nav>
+
+            <nav id="main-menu" className="navbar"> 
+                <NavLink className="nav-link" to="/Contact">Contact</NavLink>
             </nav>
 
             <DarkModeSwitch />
 
-            <a id="auth-signin" href="#" className="btn-primary">
+            <Link id="auth-signin" to="/" className="btn-primary">
                 <i className="fa-thin fa-user-large"></i>
                 <span>Sign in / up</span>
-            </a>
+            </Link>
 
             <button className="btn-mobile">
                 <i className="fa-regular fa-bars"></i>

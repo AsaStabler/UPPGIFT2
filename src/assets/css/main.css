@@ -375,17 +375,17 @@ input:checked + .slider:before {
 }
 
 .nav-link {
-    color: var(--color-text-navigation);          /*** Har Ändrats ***/
+    color: var(--color-text-navigation);          
     font-weight: 600;
     text-decoration: none;
 }
 .nav-link:hover {
-    color: var(--color-primary);                  /*** ÄNDRAS ??? ***/
+    color: var(--color-primary);                  
     text-decoration: underline; 
 }
 
 .active {
-    color: var(--color-primary);                  /*** ÄNDRAS ??? ***/
+    color: var(--color-primary);                
     text-decoration: underline;
 }
 
@@ -1439,10 +1439,10 @@ footer {
 #contact-us {
   
     padding: 2rem; 
-    padding-top: 10rem;
+    padding-top:4rem;
         
     @media (min-width: 1400px) {
-        height: 780px;
+        height: 680px;
     }
     
     background-color: var(--clr-bg-100);     /* behöver en egen variabel för dark */
@@ -1625,6 +1625,36 @@ footer {
 }
 /* MAP END */
 
+/*  BREADCRUMB START */
+.breadcrumb-box {
+    padding-top: 2rem;
+    background-color: var(--clr-bg-100);
+    .text-brcr {
+        font-size: 14px;
+        font-weight: regular;
+        color: var(--color-gray-600)
+        
+    }
+    /*  Fungerar inte
+    a .active {
+        color: var(--color-gray-900);   
+    }
+    */
+    ul {
+        display: flex;
+        gap: 2rem;
+        list-style-type: none;
+        
+        .first {
+            margin-right: 0.3rem;
+        }
+        .others {
+            margin-right: 1.5rem;
+        }
+        
+    }
+}
+/*  BREADCRUMB END */
 
 
 /* MEDIA QUERIES FOR header, footer, brands START */  
@@ -1663,7 +1693,7 @@ footer {
     }
 
     header .container {
-        grid-template-columns: auto 1fr auto auto;
+        grid-template-columns: auto auto 1fr auto auto;
         gap: 3rem;
     }
 

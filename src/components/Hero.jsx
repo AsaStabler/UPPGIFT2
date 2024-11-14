@@ -5,6 +5,7 @@ import GooglePlayLight from '../assets/images/googleplay-light.svg'
 import GooglePlayDark from '../assets/images/googleplay-dark-mobile.svg'
 import IphoneBudget from '../assets/images/iphone-mybudget_desktop.svg'
 import IphoneCards from '../assets/images/iphone-yourcards_desktop.svg'
+import { Link } from 'react-router-dom'
 
 
 const Hero = () => {
@@ -17,17 +18,17 @@ const Hero = () => {
             <div className="content">
                 <p>We offer you a new generation of the mobile banking. Save, spend & manage money in your pocket.</p>
                 <div className="buttons">
-                    <a className="btn-download-app show-light" href="#"><img src={AppStoreLight} alt="appstore light" /></a>
-                    <a className="btn-download-app show-dark" href="#"><img src={AppStoreDark} alt="appstore dark" /></a>
-                    <a className="btn-download-app show-light" href="#"><img src={GooglePlayLight} alt="googleplay light" /></a>
-                    <a className="btn-download-app show-dark" href="#"><img src={GooglePlayDark} alt="googleplay dark" /></a>
+                    <a target="_blank" className="btn-download-app show-light" href="https://www.apple.com/"><img src={AppStoreLight} alt="appstore light" /></a>
+                    <a target="_blank" className="btn-download-app show-dark" href="https://www.apple.com/"><img src={AppStoreDark} alt="appstore dark" /></a>
+                    <a target="_blank" className="btn-download-app show-light" href="https://play.google.com/"><img src={GooglePlayLight} alt="googleplay light" /></a>
+                    <a target="_blank" className="btn-download-app show-dark" href="https://play.google.com/"><img src={GooglePlayDark} alt="googleplay dark" /></a>
                 </div>
-                <a href="#" className="discover-more">
+                <Link to="/" className="discover-more">
                     <span className="btn-circle">
                         <i className="fa-solid fa-chevron-down"></i>
                     </span>
                     <span>Discover more</span>
-                </a>
+                </Link>
             </div>
             <div className="images">
                 <img className="img-back" src={IphoneBudget} alt="iphone my budget" />

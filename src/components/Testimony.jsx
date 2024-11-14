@@ -1,9 +1,7 @@
 import React from 'react'
-//import { Link } from 'react-router-dom'
 
 const Testimony = ({item}) => {
   return (
-    //<Link to={`/services/${item.id}`}>
         <div className="testimony">
             <button className="btn-quote">
                 <img src="./testimonyimages/quote-icon.svg" alt="quote icon" />
@@ -20,7 +18,6 @@ const Testimony = ({item}) => {
                 </div>
             </div>
         </div>
-    //</Link>
   )
 }
 
