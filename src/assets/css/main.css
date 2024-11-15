@@ -1503,7 +1503,7 @@ footer {
         .contactform {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;              /* Avstånd mellan varje label-input par */
+            gap: 1.5rem;              /* Avstånd mellan varje form-field par */
         }
         
         .center {
@@ -1514,10 +1514,15 @@ footer {
             text-align: center;
         }
 
-        .label-input {
+        .form-field {
             display: flex;
             flex-direction: column; 
-            gap: 0.3rem;         /* Avstånd mellan varje label och input */   
+            gap: 0.3rem;         /* Avstånd mellan varje label och input och span*/
+            
+            label, span {
+                margin-left: 0.3rem;
+            }
+            
         } 
 
         input {

@@ -2,11 +2,18 @@ import React, { useState } from 'react'
 
 const ContactForm = () => {
     const [formData, setFormData] = useState( {fullName: '', email: '', specialist: '' })
+    const [errors, setErrors] = useState({})
     const [submitted, setSubmitted] = useState(false) 
   
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({...formData, [name]: value})
+
+        if (value.trim() === '') {
+            setErrors(prevErrors => ({...prevErrors, [name]: `The ${name} field is required.`}))
+        } else {
+            setErrors(prevErrors => ({...prevErrors, [name]: ''}))
+        } 
     }
 
     const handleOk = () => {
@@ -16,6 +23,18 @@ const ContactForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault() 
         //alert('Submit ok')
+
+        const newErrors = {}
+        Object.keys(formData).forEach(field => {
+            if (formData[field].trim() === '') {
+                newErrors[field] = `The ${field} field is required.`
+            }
+        })
+
+        if (Object.keys(newErrors).length > 0) {
+            setErrors(newErrors)
+            return
+        }
         
         const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
             method: 'post',
@@ -56,19 +75,22 @@ const ContactForm = () => {
             <form onSubmit={handleSubmit} noValidate>
                 <div className="contactform  text-nav">
 
-                    <div className="label-input">
+                    <div className="form-field">
                         <label forname="fullName">Full Name</label>
                         <input type="text" id="fullName" name="fullName" value={formData.fullName} onChange={handleChange} required placeholder="First and last name" />
+                        <span>{errors.fullName && errors.fullName}</span>
                     </div>
                 
-                    <div className="label-input">
+                    <div className="form-field">
                         <label forname="email">Email address</label>
                         <input type="text" id="email" name="email" value={formData.email} onChange={handleChange} required placeholder="Your Email" />
+                        <span>{errors.email && errors.email}</span>
                     </div>
                 
-                    <div className="label-input">
+                    <div className="form-field">
                         <label forname="specialist">Specialist</label>
                         <input type="text" id="specialist" name="specialist" value={formData.specialist} onChange={handleChange} required placeholder="Choose specialist" />
+                        <span>{errors.specialist && errors.specialist}</span>
                     </div>
 
                     <button type="submit" className="text-nav btn-submit-contactform">Make an appointment</button>              
