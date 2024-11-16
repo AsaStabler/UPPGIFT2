@@ -18,6 +18,8 @@
 
     --color-border-gray: var(--color-gray-300);
 
+    --color-text-error: #EF4444;
+
     --container-padding: 1rem;
     --transition-time: all 0.2;
     /*
@@ -153,6 +155,11 @@ h1, h2, h3, h4, h5, h6 {
 .text-sm {                   /* Brödtext */
     font-size: 0.875rem;     /* 14px */
 }
+
+.error-msg {
+    color: var(--color-text-error);              
+    font-size: 12px;
+}  
 
 .text-nav {
     /* Rubrikerna i accordian under FAQ sektionen */
@@ -1522,7 +1529,11 @@ footer {
             label, span {
                 margin-left: 0.3rem;
             }
-            
+
+/*            span {
+                color: var(--color-text-error);              
+                font-size: 12px;
+            }  */
         } 
 
         input {
@@ -1637,8 +1648,7 @@ footer {
     .text-brcr {
         font-size: 14px;
         font-weight: regular;
-        color: var(--color-gray-600)
-        
+        color: var(--color-gray-600) 
     }
     /*  Fungerar inte
     a .active {

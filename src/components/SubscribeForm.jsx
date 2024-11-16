@@ -5,15 +5,41 @@ const SubscribeForm = () => {
     const [errors, setErrors] = useState({})
     const [submitted, setSubmitted] = useState(false) 
 
+
+    const validateField = (name, value) => {
+        let error = ''
+
+        if (name === 'email' &&  !/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(value)) {
+            error = "Must be a valid email (eg. username@example.com)."
+        }
+
+        setErrors(prevErrors => ({...prevErrors, [name]: error}))
+    }
+
+    const validateForm = () => {
+        const newErrors = {}
+
+        if (!/^[A-Za-z0-9._-]+@[A-Za-z0-9.-]+\.[A-Za-z0-9]{2,}$/.test(formData.email)) {
+            newErrors.email = "Must be a valid email (eg. username@example.com)."
+        }
+
+        setErrors(newErrors)
+        return Object.keys(newErrors).length === 0;  //Här görs return av true eller false
+                                                     //True om det inte finns några errors, annars false
+    }
+
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData({...formData, [name]: value})
 
+        validateField(name, value)
+/*
         if (value.trim() === '') {
             setErrors(prevErrors => ({...prevErrors, [name]: `The ${name} field is required.`}))
         } else {
             setErrors(prevErrors => ({...prevErrors, [name]: ''}))
         } 
+*/
     }
 
     const handleOk = () => {
@@ -23,6 +49,30 @@ const SubscribeForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault() 
         //alert('Submit ok')
+
+        if (validateForm()) {
+            console.log('form valid')
+
+            //Gör fetch här
+            const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/subscribe', {
+                method: 'post',
+                headers: {
+                  'Content-Type': 'application/json'  
+                },
+                body: JSON.stringify(formData)
+            }) 
+            
+            if (res.ok) {
+              setSubmitted(true) 
+              setFormData({email: ''})
+            }
+
+        } else {
+            console.log('form invalid')
+            //Errormeddelande ska skrivas ut för de fält som inte är korrekt ifyllda
+        }
+
+/*      ERROR HANDLING No 1: Only checking for "required"
 
         const newErrors = {}
         Object.keys(formData).forEach(field => {
@@ -35,7 +85,10 @@ const SubscribeForm = () => {
             setErrors(newErrors)
             return
         }
-        
+*/
+
+/*      ERROR HANDLING No 1: Only checking for "required"
+
         const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/subscribe', {
             method: 'post',
             headers: {
@@ -48,6 +101,8 @@ const SubscribeForm = () => {
           setSubmitted(true) 
           setFormData({email: ''})
         }
+   
+*/
     }
 
    if (submitted) {
@@ -67,7 +122,7 @@ const SubscribeForm = () => {
                 <input type="email" className="form-input-email email" id="email" name="email" value={formData.email} onChange={handleChange} required placeholder="Your Email" />
                 <button type="submit" className="btn-subscribe">Subscribe</button>
             </div>
-            <span>{errors.email && errors.email}</span>
+            <span className="error-msg">{errors.email && errors.email}</span>
         </form>
     )
 }
