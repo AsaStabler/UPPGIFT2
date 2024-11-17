@@ -414,6 +414,23 @@ header .container {
     gap: 1.5rem;
     padding: 1rem;  
 }
+
+.mobile-menu {   
+    display: none; 
+}
+
+/* In tablet/mobile mode, when class "show" is set
+    - then mobile-menu is shown */
+@media (max-width: 1400px) { 
+    .show .mobile-menu {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+}
+
 /* HEADER END */
 
 /* FOOTER START */

@@ -9,7 +9,7 @@ const AccordionPanel = ({item}) => {
     }
 
     return (
-        <div className={`accordion-panel-open ${isOpen ? 'open': ''}`}     >
+        <div className={`accordion-panel-open ${isOpen ? 'open': ''}`}>
             <div className="question" onClick={toggleAccordion}>
                 <div className="text-nav">{item.title}</div>
                 <span className="btn-circle-acc">  
