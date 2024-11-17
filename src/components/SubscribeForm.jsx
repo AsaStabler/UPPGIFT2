@@ -108,9 +108,10 @@ const SubscribeForm = () => {
    if (submitted) {
         return (
             <div className="subscribe-group">
-              <p className="text-lg">Tack för ditt meddelande!</p>
-              
-              <button className="btn-ok text-nav" onClick={handleOk}>Ok</button>
+                <div className="thankyou-msg">
+                    <p className="h5">Thank you!</p>
+                    <button className="btn-ok text-nav" onClick={handleOk}>Ok</button>
+                </div>
             </div>
         )
     }  

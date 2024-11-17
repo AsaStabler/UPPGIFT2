@@ -129,8 +129,8 @@ const ContactForm = () => {
     if (submitted) {
         return (
             <div className="consultation-box">
-               <h2 className="h2 center">Tack för ditt meddelande!</h2>
-               <h4 className="h4 distance">Vi återkommer inom kort med en läkartid.</h4> 
+               <h2 className="h2 center">Thank you for your message!</h2>
+               <h4 className="h4 distance">We will return to you shortly with a time.</h4> 
                <button className="btn-ok text-nav" onClick={handleOk}>Ok</button>
             </div>
         )

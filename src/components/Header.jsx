@@ -41,7 +41,8 @@ const Header = () => {
 
         </div>
 
-        <div className={`container ${showMenu ? 'show': ''}`}>
+        
+        <div className={`${showMenu ? 'show': ''}`}>
             <div className="mobile-menu">
                 <Link to="/" className="btn-primary">
                     <i className="fa-thin fa-user-large"></i>
