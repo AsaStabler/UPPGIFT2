@@ -3,7 +3,6 @@ import LogoTypeLight from '../assets/images/logo-light.svg'
 import LogoTypeDark from '../assets/images/logo-dark.svg'
 import DarkModeSwitch from './DarkModeSwitch'
 import { Link, NavLink } from 'react-router-dom'
-//import MobileMenu from './MobileMenu'
 
 const Header = () => {
 

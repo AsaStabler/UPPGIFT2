@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 const ContactForm = () => {
-    //const [options, setOptions] = useState([{ id: 1, text: "Cardiologist" }, { id: 2, text: "Dermatologist" }, { id: 3, text: "Family Physician"}, { id: 4, text: "Neurologist"}, { id: 5, text: "Pediatrician"}, { id: 6, text: "Psychiatrist"} ]) 
+    
     const [formData, setFormData] = useState( {fullName: '', email: '', specialist: ''})
     const [errors, setErrors] = useState({})
     const [submitted, setSubmitted] = useState(false) 
@@ -45,14 +45,6 @@ const ContactForm = () => {
         setFormData({...formData, [name]: value})
 
         validateField(name, value)
-
-/*
-        if (value.trim() === '') {
-            setErrors(prevErrors => ({...prevErrors, [name]: `The ${name} field is required.`}))
-        } else {
-            setErrors(prevErrors => ({...prevErrors, [name]: ''}))
-        } 
-*/
     }
 
     const handleOk = () => {
@@ -61,12 +53,10 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault() 
-        //alert('Submit ok')
 
         if (validateForm()) {
             console.log('form valid')
 
-            //Gör fetch här
             const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
                 method: 'post',
                 headers: {
@@ -84,46 +74,6 @@ const ContactForm = () => {
             console.log('form invalid')
             //Errormeddelande ska skrivas ut för de fält som inte är korrekt ifyllda
         }
-
-/*      ERROR HANDLING No 1: Only checking for "required"
-
-        const newErrors = {}
-        Object.keys(formData).forEach(field => {
-            if (formData[field].trim() === '') {
-                newErrors[field] = `The ${field} field is required.`
-            }
-        })
-
-        if (Object.keys(newErrors).length > 0) {
-            setErrors(newErrors)
-            return
-        }
-*/
- 
-/*      ERROR HANDLING No 1 (flyttat till anropet av validateForm() ovan)
-
-        const res = await fetch('https://win24-assignment.azurewebsites.net/api/forms/contact', {
-            method: 'post',
-            headers: {
-              'Content-Type': 'application/json'  
-            },
-            body: JSON.stringify(formData)
-        }) 
-        
-        if (res.ok) {
-           setSubmitted(true) 
-           setFormData({fullName: '', email: '', specialist: '' })
-        }
-*/
-        
-        /* THIS IS CODE FOR TESTING - FIRST DRAFT
-        if (res.ok) {
-            const data = await res.text()
-            console.log(data)
-        } else {
-            const data = await res.json()
-            console.log(data)
-        } */   
     } 
 
     if (submitted) {
